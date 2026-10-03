@@ -71,6 +71,11 @@ h1 { font-size: clamp(45px, 5vw, 84px); font-weight: 800; line-height: 1.4; lett
 .faq details { padding: 22px 0; border-bottom: 1px solid var(--line); }
 summary { cursor: pointer; line-height: 1.6; font-weight: 700; }
 .faq details p { color: var(--muted); font-size: 16px; line-height: 1.9; margin-bottom: 0; }
+.release-entry { margin-top: 24px; padding: 22px 24px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+.release-entry h3 { margin: 0; font-size: 20px; line-height: 1.5; }
+.faq .release-meta { margin: 8px 0 16px; font-size: 14px; }
+.release-entry ul { margin: 0; padding-left: 22px; line-height: 1.9; font-size: 16px; }
+.release-entry li + li { margin-top: 8px; }
 .site-footer { border-top: 1px solid var(--line); padding: 32px 0; display: flex; align-items: start; flex-wrap: wrap; gap: 24px; justify-content: space-between; }
 .footer-brand { font-size: 17px; }
 .footer-links { display: flex; align-items: start; gap: 32px; font-size: 14px; color: var(--muted); }
