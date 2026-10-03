@@ -53,6 +53,16 @@ h1 { font-size: clamp(45px, 5vw, 84px); font-weight: 800; line-height: 1.4; lett
 .section-heading h2 { font-size: 34px; margin: 0 0 18px; line-height: 1.4; letter-spacing: -.6px; }
 .section-heading .eyebrow { margin-bottom: 18px; }
 .section-heading > p:last-child { color: var(--muted); line-height: 1.8; }
+.illustrated-heading { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; }
+.heading-art { display: block; flex: 0 0 152px; width: 152px; height: 152px; object-fit: contain; }
+.illustrated-heading > div { min-width: 0; }
+.illustrated-heading h2 { margin-bottom: 0; }
+.illustrated-heading .eyebrow { margin-bottom: 12px; }
+@media (max-width: 600px) {
+  .illustrated-heading { gap: 14px; margin-bottom: 14px; }
+  .heading-art { flex-basis: 88px; width: 88px; height: 88px; }
+  .illustrated-heading .eyebrow { font-size: 10px; letter-spacing: 1.6px; margin-bottom: 8px; }
+}
 .story-heading { text-align: center; margin-bottom: 35px; }
 .story-row { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 64px; padding: 32px 0 52px; }
 .story-art { display: block; width: 100%; height: auto; aspect-ratio: 4/3; object-fit: contain; mix-blend-mode: multiply; mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent), linear-gradient(to bottom, transparent, #000 4%, #000 96%, transparent); mask-composite: intersect; }
@@ -68,32 +78,19 @@ h1 { font-size: clamp(45px, 5vw, 84px); font-weight: 800; line-height: 1.4; lett
 .story-reverse .story-art { grid-column: 2; grid-row: 1; }
 .story-reverse .story-copy { grid-column: 1; grid-row: 1; padding-left: 28px; }
 .faq { max-width: 850px; padding-bottom: 86px; }
-.faq details { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.faq details, .release-entry { padding: 22px 0; border-bottom: 1px solid var(--line); }
 summary { cursor: pointer; line-height: 1.6; font-weight: 700; }
 .faq details p { color: var(--muted); font-size: 16px; line-height: 1.9; margin-bottom: 0; }
 .release-log { max-width: 850px; padding-top: 0; padding-bottom: 86px; }
-.release-entry { margin-top: 16px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
-.release-entry summary { display: block; padding: 22px 24px; list-style: none; }
-.release-entry summary::-webkit-details-marker { display: none; }
-.release-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto 10px; align-items: center; gap: 16px; margin: 0; line-height: 1.5; }
-.release-version { font-size: 20px; }
-.release-date { font-size: 14px; font-weight: 400; color: var(--muted); white-space: nowrap; }
-.release-chevron { width: 9px; height: 9px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .16s ease; }
-.release-entry[open] .release-chevron { transform: rotate(225deg); }
-.release-content { padding: 0 24px 24px; }
-.release-channel { color: var(--muted); margin: 0 0 16px; font-size: 14px; line-height: 1.9; }
+.release-heading { display: inline; margin: 0; font-size: inherit; line-height: inherit; }
+.release-date { display: inline-block; margin-left: 12px; font-size: 14px; font-weight: 400; color: var(--muted); white-space: nowrap; }
+.release-content { margin-top: 16px; color: var(--muted); }
+.release-channel { color: var(--muted); margin: 0 0 16px; font-size: 16px; line-height: 1.9; }
 .release-entry ul { margin: 0; padding-left: 22px; line-height: 1.9; font-size: 16px; }
 .release-entry li + li { margin-top: 8px; }
 @media (max-width: 600px) {
   .release-log { padding-bottom: 60px; }
-  .release-entry summary { padding: 18px; }
-  .release-heading { grid-template-columns: minmax(0, 1fr) 10px; gap: 6px 12px; }
-  .release-version { font-size: 18px; }
-  .release-date { grid-column: 1; grid-row: 2; }
-  .release-chevron { grid-column: 2; grid-row: 1 / span 2; }
-  .release-content { padding: 0 18px 20px; }
 }
-@media (prefers-reduced-motion: reduce) { .release-chevron { transition: none; } }
 .site-footer { border-top: 1px solid var(--line); padding: 32px 0; display: flex; align-items: start; flex-wrap: wrap; gap: 24px; justify-content: space-between; }
 .footer-brand { font-size: 17px; }
 .footer-links { display: flex; align-items: start; gap: 32px; font-size: 14px; color: var(--muted); }
