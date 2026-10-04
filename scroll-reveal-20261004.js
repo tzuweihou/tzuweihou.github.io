@@ -3,9 +3,18 @@
   if (!('IntersectionObserver' in window) || !('animate' in Element.prototype)) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const preference = new URLSearchParams(window.location.search).get('motion');
-  // The explicit website control can opt in without changing the OS preference.
-  const enabled = preference === 'on' || (preference !== 'off' && !reducedMotion.matches);
+  const requested = new URLSearchParams(window.location.search).get('motion');
+  const isChoice = value => value === 'on' || value === 'off';
+  let preference = isChoice(requested) ? requested : null;
+  try {
+    if (preference) localStorage.setItem('vibe-motion-preference', preference);
+    else {
+      const saved = localStorage.getItem('vibe-motion-preference');
+      if (isChoice(saved)) preference = saved;
+    }
+  } catch { /* Animation remains available when storage is blocked. */ }
+  // Ordinary visits get a reveal too; reduced motion uses a fade without movement.
+  const enabled = preference !== 'off';
   document.documentElement.dataset.motion = enabled ? 'on' : 'off';
   const control = document.getElementById('motion-toggle');
   if (control) {
@@ -47,10 +56,15 @@
           pending.delete(target);
           target.classList.remove('reveal-pending');
           target.dataset.revealState = 'running';
-          const animation = target.animate([
-            { opacity: 0, transform: 'translateY(44px)' },
-            { opacity: 1, transform: 'translateY(0)' }
-          ], { duration: 850, easing: 'cubic-bezier(.2, .8, .2, 1)', fill: 'backwards' });
+          const fadeOnly = reducedMotion.matches && preference !== 'on';
+          const frames = fadeOnly
+            ? [{ opacity: 0 }, { opacity: 1 }]
+            : [
+                { opacity: 0, transform: 'translateY(44px)' },
+                { opacity: 1, transform: 'translateY(0)' }
+              ];
+          const animation = target.animate(frames,
+            { duration: 850, easing: 'cubic-bezier(.2, .8, .2, 1)', fill: 'backwards' });
           activeAnimations.add(animation);
           animation.onfinish = animation.oncancel = () => {
             activeAnimations.delete(animation);
@@ -68,24 +82,7 @@
       target.dataset.revealState = 'pending';
       observer.observe(target);
     });
-    // An explicit on/off choice belongs to this page; system mode follows changes.
-    if (preference !== 'on' && preference !== 'off') {
-      const onPreferenceChange = event => {
-        if (event.matches) {
-          showImmediately();
-          document.documentElement.dataset.motion = 'off';
-          if (control) {
-            const destination = new URL(window.location.href);
-            destination.searchParams.set('motion', 'on');
-            destination.hash = '';
-            control.href = destination.href;
-            control.textContent = '開啟動態效果';
-          }
-        }
-      };
-      if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', onPreferenceChange);
-      else if (reducedMotion.addListener) reducedMotion.addListener(onPreferenceChange);
-    }
+    // Read the live system preference for each reveal, including later changes.
   } catch {
     showImmediately();
   }
