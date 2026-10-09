@@ -192,3 +192,7 @@ summary { cursor: pointer; line-height: 1.6; font-weight: 700; }
   .button { transition: none; }
   .button:hover { transform: none; }
 }
+
+/* Keep the original artwork intact; replace only the lower phone UI. */
+.hero-visual picture { display:block; width:100%; height:100%; }
+.hero-ui { position:absolute; inset:0; pointer-events:none; }

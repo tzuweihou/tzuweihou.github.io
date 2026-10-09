@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1774 887">
+ <defs><clipPath id="screen"><path d="M982 495 L1336 488 L1328 760 Q1326 800 1291 800 L998 790 Q966 789 966 758 Z"/></clipPath></defs>
+ <g clip-path="url(#screen)" font-family="Arial,Microsoft JhengHei,sans-serif" fill="#202a3c">
+  <path d="M982 495L1336 488L1328 806L965 795Z" fill="#f5f7fa"/>
+  <g transform="translate(998 504) rotate(1)">
+   <path d="M18 0H296Q312 0 312 16V85Q312 101 296 101H5Q0 101 0 96V18Q0 0 18 0" fill="#e6f4ea" stroke="#cee5d5"/>
+   <text x="13" y="25" font-size="17">Welcome! What would you</text><text x="13" y="47" font-size="17">like to order?</text>
+   <g fill="#eef1f6"><circle cx="31" cy="77" r="15"/><circle cx="77" cy="77" r="15"/><circle cx="123" cy="77" r="15"/></g>
+   <g stroke="#202a3c" stroke-width="1.8" fill="none" stroke-linecap="round"><path d="M21 74H25L30 70V84L25 80H21Z M34 72Q40 77 34 82"/><path d="M69 72H79M74 69V72M70 74Q72 80 79 82M78 73Q76 80 69 82M80 83L84 75L88 83M82 80H86"/><path d="M113 77Q123 65 133 77Q123 89 113 77Z"/><circle cx="123" cy="77" r="3"/></g>
+   <path d="M80 110H296Q312 110 312 127V149Q312 166 306 166H80Q64 166 64 150V126Q64 110 80 110" fill="#eef1f6"/>
+   <text x="82" y="135" font-size="17">A coffee, please.</text>
+   <g stroke="#657184" stroke-width="1.7" fill="none"><path d="M84 146H88L93 142V154L88 150H84Z M98 145Q102 148 98 152"/><path d="M120 152L129 143M125 141L132 148 M120 142V146M118 144H122"/></g>
+  </g>
+  <g transform="matrix(1 0.04 -0.035 1 979 704)">
+   <rect width="344" height="68" rx="27" fill="white"/>
+   <rect x="48" y="9" width="244" height="50" rx="18" fill="#42755f"/>
+   <g stroke="#657184" stroke-width="2" fill="none"><rect x="12" y="26" width="22" height="15" rx="2"/><path d="M16 30H19M22 30H25M28 30H31M17 36H29"/></g>
+   <g stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"><rect x="94" y="22" width="9" height="16" rx="4.5"/><path d="M89 32V34Q89 44 98.5 44Q108 44 108 34V32M98.5 44V49M94 49H103"/></g>
+   <text x="125" y="41" fill="#ffffff" font-size="19" font-weight="600">按此說話</text>
+   <g fill="#657184"><circle cx="309" cy="34" r="2"/><circle cx="315" cy="34" r="2"/><circle cx="321" cy="34" r="2"/></g>
+  </g>
+ </g>
+</svg>
