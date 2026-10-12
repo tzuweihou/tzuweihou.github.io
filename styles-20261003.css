@@ -88,6 +88,12 @@ summary { cursor: pointer; line-height: 1.6; font-weight: 700; }
 .release-channel { color: var(--muted); margin: 0 0 16px; font-size: 16px; line-height: 1.9; }
 .release-entry ul { margin: 0; padding-left: 22px; line-height: 1.9; font-size: 16px; }
 .release-entry li + li { margin-top: 8px; }
+.release-entry[hidden], .release-log-controls[hidden], .release-log-controls [hidden] { display: none !important; }
+.release-log-controls { display: flex; justify-content: center; gap: 16px; margin-top: 24px; }
+.release-log-controls button { min-height: 44px; padding: 10px 22px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: inherit; font: inherit; font-weight: 700; cursor: pointer; }
+.release-log-controls button:hover { background: rgba(18, 51, 99, .06); }
+.release-log-controls button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.release-log-status.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 600px) {
   .release-log { padding-bottom: 60px; }
 }
