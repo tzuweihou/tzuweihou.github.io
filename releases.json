@@ -1,5 +1,15 @@
 [
   {
+    "version": "0.1.69",
+    "versionCode": 69,
+    "publishedDate": "2026-10-25",
+    "channel": "Alpha 封閉測試",
+    "changes": [
+      "行李轉盤練習句更新。調整地勤對話設定，依使用者提供的描述協助找行李，避免預設旅行社、顏色或吊牌。",
+      "保留機上對話、300 金幣解鎖及其他既有功能。"
+    ]
+  },
+  {
     "version": "0.1.68",
     "versionCode": 68,
     "publishedDate": "2026-10-25",
